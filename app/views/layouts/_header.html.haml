@@ -1,13 +1,14 @@
-%header
-  #exit-content
-    %a#button-exit{:href => "/users/sign_out"}
-      %i.fa.fa-sign-out-alt
-  #red-content
-    %a#button-post{:href => "/posts/index"}
-      %i.fa.fa-edit
-  #yellow-content
-    %a#button-fav-ranking{:href => "~"}
-      %i.fa.fa-star
-  #blue-content
-    %a#button-mypage{:href => "~"}
-      %i.fa.fa-user
+- if user_signed_in?
+  %header
+    #exit-content
+      %a#button-exit{:href => "/users/sign_out"}
+        %i.fa.fa-sign-out-alt
+    #red-content
+      %a#button-post{:href => "/posts/index"}
+        %i.fa.fa-edit
+    #yellow-content
+      %a#button-fav-ranking{:href => "~"}
+        %i.fa.fa-star
+    #blue-content
+      %a#button-mypage{:href => "~"}
+        %i.fa.fa-user
