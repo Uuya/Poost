@@ -1,0 +1,7 @@
+@mixin header-content(){
+  width:50px;
+  display:inline-block;
+  position:absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
