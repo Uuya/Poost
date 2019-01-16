@@ -1,0 +1,64 @@
+@import "./mixins.scss";
+
+header {
+  width : 100%;
+  height: 100px;
+  background-color: #E5EAEB;
+  position:relative;
+
+  #exit-content{
+    @include header-content();
+    right:2%;
+
+    #button-exit{
+      @include header-button();
+      background-color: #69B341;
+
+      .fa-sign-out-alt {
+        @include icon-height();
+      }
+    }
+  }
+
+  #red-content{
+    @include header-content();
+    right:8%;
+
+    #button-post{
+      @include header-button();
+      background-color: #E84566;
+
+      .fa-edit {
+        @include icon-height();
+      }
+    }
+  }
+
+  #yellow-content{
+    @include header-content();
+    right:14%;
+
+    #button-fav-ranking{
+      @include header-button();
+     background-color: #F9E900;
+
+      .fa-star {
+        @include icon-height();
+      }
+    }
+  }
+
+  #blue-content{
+    @include header-content();
+    right:20%;
+
+    #button-mypage{
+      @include header-button();
+      background-color: #00A0E8;
+
+      .fa-user {
+        @include icon-height();
+      }
+    }
+  }
+}
