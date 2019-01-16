@@ -1,9 +1,4 @@
-@import "./content";
-@import "./circle";
-@import "./circle-font";
-@import "./lato";
-@import "./link";
-@import "./noto";
+@import "./mixins.scss";
 
 .main {
   width : 100%;

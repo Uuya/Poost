@@ -1,7 +1,4 @@
-@import "./header-content";
-@import "./link";
-@import "./header-button";
-@import "./icon-height";
+@import "./mixins.scss";
 
 header {
   width : 100%;
