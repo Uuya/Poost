@@ -1,0 +1,100 @@
+@import "./content";
+@import "./circle";
+@import "./circle-font";
+@import "./lato";
+@import "./link";
+@import "./noto";
+
+.main {
+  width : 100%;
+  height: 100vh;
+
+  #blue-content{
+    background-color: #00A0E8;
+    @include content();
+
+    &:hover{
+      background-color: #A3B6DE;
+    }
+
+      #circle-mypage{
+        @include circle();
+        background-color: #3B82C4;
+        color:#404A95;
+
+        #circle-font {
+          @include circle-font();
+          @include lato();
+        }
+      }
+  }
+  #yellow-content{
+    background-color: #F9E900;
+    @include content();
+
+    &:hover{
+      background-color: #FFE873;
+    }
+
+      #circle-fav-ranking{
+        @include circle();
+        background-color: #FDD133;
+        color: #EEA800;
+
+        #circle-font {
+          @include circle-font();
+          @include lato();
+        }
+      }
+  }
+
+  #red-content{
+    background-color: #E84566;
+    @include content();
+
+    &:hover{
+      background-color: #EC7986;
+    }
+
+      #circle-post{
+        @include circle();
+        background-color: #E72C2E;
+        color:#A20031;
+
+        #circle-font {
+          @include circle-font();
+          @include lato();
+        }
+      }
+    }
+
+  #white-content{
+    background-color: #F5F5F5;
+    @include content();
+
+    &:hover{
+      background-color: #FFF;
+    }
+
+      #logo{
+        margin-top:90px;
+        @include lato();
+
+        #under{
+          font-size:90px;
+          background: linear-gradient(transparent 70%, yellow 70%);
+        }
+      }
+
+      #log-link{
+        margin: 300px 0 18px 0;
+        @include link();
+        @include noto();
+      }
+
+      #signup-link{
+        @include link();
+        @include noto();
+      }
+  }
+}
