@@ -1,19 +1,21 @@
 .main
-  .blue.content
-    %a.circle.mypage{:href => "~"}
-      %span.lato My Page
-  .yellow.content
-    %a.circle.fav-ranking{:href => "~"}
-      %span.lato Fav Ranking
-  .red.content
-    %a.circle.post{:href => "~"}
-      %span.lato Post!
-  .white.content
-    %h1.logo.lato
-      %span.under Poost!
+  #blue-content
+    %a#circle-mypage{:href => "~"}
+      %span#circle-font My Page
+  #yellow-content
+    %a#circle-fav-ranking{:href => "~"}
+      %span#circle-font Fav Ranking
+  #red-content
+    %a#circle-post{:href => "~"}
+      %span#circle-font Post!
+  #white-content
+    %h1#logo
+      %span#under Poost!
     %div
-      %a.log.link{:href => "~"}
-        %span.noto ログイン
-    %div
-      %a.signup.link{:href => "~"}
-        %span.noto 新規登録
+      -if user_signed_in?
+        %a#log-link{:href => "/users/sign_out"} ログアウト
+      -else
+        %a#log-link{:href => "/users/sign_in"} ログイン
+        %div
+          %a#signup-link{:href => "~"}
+            %span#signup 新規登録
