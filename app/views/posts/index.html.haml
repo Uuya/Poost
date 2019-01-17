@@ -1,0 +1,9 @@
+.post-box
+  .post-side
+    %a.btn-floating.btn-large.cyan.pulse{:href => "/posts/new"}
+      %i.material-icons edit
+
+  .post-main
+    - @posts.each do |post|
+      .post-content
+        = post.content
