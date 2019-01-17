@@ -1,0 +1,11 @@
+.row
+  .col.s10
+    .row
+      = form_for @post do |f|
+        .input-field.col.s10
+          = f.text_area :content, id: "textarea1", class: "materialize-textarea"
+          = f.label :textarea1, '本文'
+          .send-action
+            %button.waves-effect.btn.light-blue.lighten-3{name: "action", type: "submit"}
+              Submit
+              %i.material-icons.right send

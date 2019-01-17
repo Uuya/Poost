@@ -6,6 +6,8 @@ class User < ApplicationRecord
   validates_uniqueness_of :name
   validates_presence_of   :name
 
+  has_many :posts
+
   def self.find_first_by_auth_conditions(warden_conditions)
     conditions = warden_conditions.dup
     if name   = conditions.delete(:name)
