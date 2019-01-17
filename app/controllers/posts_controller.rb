@@ -15,13 +15,19 @@ before_action :authenticate_user!
     redirect_to "/posts"
   end
 
-  # def show
+  def show
+    @post = Post.find(id_params[:id])
+  end
 
-  # end
-
-  # def destroy
-
-  # end
+  def destroy
+    post = Post.find(id_params[:id])
+    if post.user_id == current_user.id
+       post.destroy
+       redirect_to "/posts"
+     else
+       redirect_to "/posts"
+    end
+  end
 
   private
 
@@ -29,4 +35,7 @@ before_action :authenticate_user!
     params.require(:post).permit(:content).merge(user_id: current_user.id)
   end
 
+  def id_params
+    params.permit(:id)
+  end
 end
