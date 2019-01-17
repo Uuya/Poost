@@ -1,0 +1,7 @@
+.row
+  .col.s12.m10
+    .card-panel.grey
+      %span.white-text
+        = @post.content
+      = link_to post_path(@post), method: :delete do
+        %i.fa.fa-trash
