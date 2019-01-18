@@ -25,6 +25,7 @@
       border-radius: 30px;
       color:white;
       width: 75%;
+      font-size:15px;
 
       &:before{
         content: "";
@@ -53,4 +54,12 @@
         }
     }
   }
+}
+
+.yellow-star {
+  color: yellow;
+}
+
+.black-star {
+  color: gray;
 }
