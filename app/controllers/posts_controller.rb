@@ -17,6 +17,7 @@ before_action :authenticate_user!
 
   def show
     @post = Post.find(id_params[:id])
+    @fav  = Favorite.find_by(user_id: current_user.id, post_id: @post.id)
   end
 
   def destroy
@@ -26,6 +27,19 @@ before_action :authenticate_user!
        redirect_to "/posts"
      else
        redirect_to "/posts"
+    end
+  end
+
+  def fav
+    post = Post.find(params[:id])
+    if post.favorited_by?(current_user)
+      fav = current_user.favorites.find_by(post_id: post.id)
+      fav.destroy
+      render json: post.id
+    else
+      fav = current_user.favorites.new(post_id: post.id)
+      fav.save
+      render json: post.id
     end
   end
 
