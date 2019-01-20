@@ -127,3 +127,73 @@
 @mixin icon-height(){
   line-height:50px
 }
+
+@mixin user-img-box(){
+  display: inline-block;
+  width: 10%;
+  height: 100%;
+  text-align: center;
+  color:gray;
+}
+
+@mixin user-img(){
+  width: 60px;
+  height: 60px;
+  border: 3px solid orange;
+  border-radius: 50%;
+  margin: auto;
+}
+
+@mixin user-description(){
+  padding: 5px 0 0;
+  font-size: 14px;
+  text-align: center;
+  position: relative;
+  top: 0px;
+}
+
+@mixin user-img-spin(){
+  transition: .5s;
+
+  &:hover{
+    -webkit-transform: rotateX(360deg);
+    transform: rotateX(360deg);
+  }
+}
+
+@mixin user-name-spin(){
+  transition: .5s;
+
+  &:hover{
+    -webkit-transform: rotateX(360deg);
+    transform: rotateX(360deg);
+    color:#EE7700;
+  }
+}
+
+@mixin balloon(){
+  display: inline-block;
+  position: relative;
+  margin: 1.5em 0 1.5em 0;
+  padding: 20px 10px;
+  min-width: 70%;
+  max-width: 70%;
+  color: #555;
+  font-size: 16px;
+  border-radius: 10px;
+  word-wrap: break-word;
+}
+
+
+@mixin balloon-before(){
+  content: "";
+  position: absolute;
+  top: 50%;
+  margin-top: -15px;
+  border: 15px solid transparent;
+
+  & p {
+    margin: 0;
+    padding: 0;
+  }
+}

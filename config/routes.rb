@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   devise_scope :user do
     get '/users/sign_out' => 'devise/sessions#destroy'
   end
+  resources :users, only: :show
   root 'top#index'
   resources :posts, only: [:index, :new, :create, :show, :destroy]
   get 'posts/fav/:id' => 'posts#fav', as: "fav_posts"

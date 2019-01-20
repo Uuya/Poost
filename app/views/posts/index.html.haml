@@ -1,19 +1,44 @@
 .post-box
   .post-side
-    %a.btn-floating.btn-large.cyan.pulse{:href => "/posts/new"}
+    %a.btn-floating.btn-large.red.pulse{:href => "/posts/new"}
       %i.material-icons edit
 
   .post-main
     - @posts.each do |post|
-      .post-content
-        = post.content
-        - if post.favorited_by?(current_user)
-          %td
-            = link_to fav_posts_path(post), class: "fav", remote: true do
-              %i.fa.fa-star.fa-1g.yellow-star{:id => "#{post.id}"}
+      .main-content
+        - if post.user.id == current_user.id
+          %figure.right-content
+            %figcaption.img-description
+              = post.user.name
+            %img.icon.z-depth-5{:src => "/user_images/#{post.user.image}"}
+          .post-content-right.z-depth-5
+            %p
+              = post.content
+            - if post.favorited_by?(current_user)
+              %td
+                = link_to fav_posts_path(post), class: "fav", remote: true do
+                  %i.fa.fa-star.fa-1g.yellow-star{:id => "#{post.id}"}
+            - else
+              %td
+                = link_to fav_posts_path(post), class: "fav", remote: true do
+                  %i.fa.fa-star.fa-1g.black-star{:id => "#{post.id}"}
+            = link_to post_path(post), method: :get do
+              %i.fa.fa-search-plus.fa-1g
         - else
-          %td
-            = link_to fav_posts_path(post), class: "fav", remote: true do
-              %i.fa.fa-star.fa-1g.black-star{:id => "#{post.id}"}
-        = link_to post_path(post), method: :get do
-          %i.fa.fa-search-plus.fa-1g
+          %figure.left-content
+            %figcaption.img-description
+              = post.user.name
+            %img.icon.z-depth-5{:src => "/user_images/#{post.user.image}"}
+          .post-content-left.z-depth-5
+            %p
+              = post.content
+            - if post.favorited_by?(current_user)
+              %td
+                = link_to fav_posts_path(post), class: "fav", remote: true do
+                  %i.fa.fa-star.fa-1g.yellow-star{:id => "#{post.id}"}
+            - else
+              %td
+                = link_to fav_posts_path(post), class: "fav", remote: true do
+                  %i.fa.fa-star.fa-1g.black-star{:id => "#{post.id}"}
+            = link_to post_path(post), method: :get do
+              %i.fa.fa-search-plus.fa-1g
