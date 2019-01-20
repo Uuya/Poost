@@ -3,8 +3,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable,
           authentication_keys: [:name]
 
-  validates_uniqueness_of :name
-  validates_presence_of   :name
+  validates :name, presence: true, uniqueness: true, length: { maximum: 8 }
 
   has_many :posts, dependent: :destroy
   has_many :favorites, dependent: :destroy
