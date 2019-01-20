@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
 before_action :authenticate_user!
+layout 'index'
 
   def index
     @posts = Post.all.order("created_at desc")
