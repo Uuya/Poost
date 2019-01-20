@@ -1,36 +1,30 @@
-%h2
-  Edit #{resource_name.to_s.humanize}
+= devise_error_messages!
+%h2.center-align アカウント編集
 = form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f|
-  = devise_error_messages!
-  .field
-    = f.label :name
-    %br/
-    = f.text_field :name, autofocus: true, autocomplete: "name"
-  - if devise_mapping.confirmable? && resource.pending_reconfirmation?
-    %div
-      Currently waiting confirmation for: #{resource.unconfirmed_email}
-  .field
-    = f.label :password
-    %i (leave blank if you don't want to change it)
-    %br/
-    = f.password_field :password, autocomplete: "new-password"
-    - if @minimum_password_length
-      %br/
-      %em
-        = @minimum_password_length
-        characters minimum
-  .field
-    = f.label :password_confirmation
-    %br/
-    = f.password_field :password_confirmation, autocomplete: "new-password"
-  .field
-    = f.label :current_password
-    %i (we need your current password to confirm your changes)
-    %br/
-    = f.password_field :current_password, autocomplete: "current-password"
-  .actions
-    = f.submit "Update"
-%h3 Cancel my account
-%p
-  Unhappy? #{button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete}
-= link_to "Back", :back
+  .row
+    .input-field.col.s6.offset-s2
+      %i.material-icons.prefix account_circle
+      = f.text_field :name, autofocus: true, autocomplete: "name"
+      %label{:for => "icon_prefix"} 名前
+      - if devise_mapping.confirmable? && resource.pending_reconfirmation?
+        %div
+          Currently waiting confirmation for: #{resource.unconfirmed_email}
+    .input-field.col.s6.offset-s2
+      %i.material-icons.prefix lock
+      = f.password_field :password, autocomplete: "new-password"
+      %label{:for => "icon_prefix"} 新しいパスワード
+    .input-field.col.s6.offset-s2
+      %i.material-icons.prefix lock
+      = f.password_field :password_confirmation, autocomplete: "new-password"
+      %label{:for => "icon_prefix"} パスワード確認
+    .input-field.col.s6.offset-s2
+      %i.material-icons.prefix lock
+      = f.password_field :current_password, autocomplete: "current-password"
+      %label{:for => "icon_prefix"} 古いパスワード
+    .input-field.col.s6.offset-s2
+      %i.material-icons.prefix image
+      = f.select :image, [["犬", "dog.png"], ["男性", "men.png"], ["女性", "women.png"]]
+      %label{:for => "icon_prefix"} アイコン
+    %button.btn.waves-effect.waves-light.blue{:name => "action", :type => "submit"}
+      更新
+    = link_to "戻る", :back
