@@ -21,10 +21,9 @@
       %i.material-icons.prefix lock
       = f.password_field :current_password, autocomplete: "current-password"
       %label{:for => "icon_prefix"} 古いパスワード
-    .input-field.col.s6.offset-s2
+    .col.s4.offset-s2
       %i.material-icons.prefix image
-      = f.select :image, [["犬", "dog.png"], ["男性", "men.png"], ["女性", "women.png"]]
-      %label{:for => "icon_prefix"} アイコン
+      = f.select :image, [["男性", "men.png"], ["女性", "women.png"], ["うさぎ", "usagi.png"], ["いぬ", "dog.png"], ["ねこ", "cat.png"], ["あらいぐま", "araiguma.png"], ["さる１", "monkey1.png"], ["さる２", "monkey2.png"], ["さる３", "monkey3.png"], ["おばさん", "obasan.png"]], {}, { class: 'browser-default'}
     %button.btn.waves-effect.waves-light.blue{:name => "action", :type => "submit"}
       更新
     = link_to "戻る", :back
