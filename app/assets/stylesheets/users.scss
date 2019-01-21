@@ -1,3 +1,95 @@
-// Place all the styles related to the users controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+@import "./mixins.scss";
+
+.my-page{
+  height: auto;
+  width: 100%;
+  @include noto();
+
+  .user-info{
+    float:left;
+    width: 15%;
+    height: 100%;
+    text-align: center;
+
+    .post-index:hover{
+      cursor : pointer;
+    }
+    .fa-edit{
+      color:red;
+    }
+    .fav-post-index:hover{
+      cursor : pointer;
+    }
+    .fa-star{
+      color:yellow;
+    }
+    .fa-cog{
+      color:gray;
+    }
+    .icon{
+      height: 120px;
+      width: 120px;
+      border: 3px solid orange;
+      border-radius: 50%;
+    }
+  }
+  .my-post {
+    float: right;
+    height: 100%;
+    width: 85%;
+    display: none;
+
+    .post-content {
+      width: 80%;
+      padding: 0.5em 1em;
+      margin: 2em auto;
+      font-weight: bold;
+      color: #6091d3;
+      background: #FFF;
+      border: solid 3px #6091d3;
+      border-radius: 10px;
+
+      & p {
+          margin: 0;
+          padding: 0;
+      }
+    }
+  }
+
+  .my-fav-post {
+    float: right;
+    height: 100%;
+    width: 85%;
+    display: none;
+
+    .fav-post-content {
+      height: 100%;
+      width:100%;
+
+      .fav-content {
+        @include user-img-box();
+        float: left;
+
+        .fav-icon {
+          @include user-img();
+          @include user-img-spin();
+        }
+        .fav-img-description {
+          @include user-description();
+          @include user-name-spin();
+        }
+      }
+      .fav-post-content {
+        @include balloon();
+        float: left;
+        background: #EEF1F7;
+
+        &:before{
+          @include balloon-before();
+          left: -30px;
+          border-right: 15px solid #EEF1F7;
+        }
+      }
+    }
+  }
+}
