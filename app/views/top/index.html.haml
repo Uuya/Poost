@@ -1,9 +1,9 @@
 .main
   #blue-content
-    %a#circle-mypage{:href => "~"}
+    %a#circle-mypage{:href => "/users/#{current_user.id}"}
       %span#circle-font My Page
   #yellow-content
-    %a#circle-fav-ranking{:href => "~"}
+    %a#circle-fav-ranking{:href => "/favorites/index"}
       %span#circle-font Fav Ranking
   #red-content
     %a#circle-post{:href => "/posts"}
