@@ -1,20 +1,21 @@
 .row
   .my-page
+    %h1.my-page-heading User Page
     .user-info
       %figure.img
         %figcaption.img-description
           = @user.name
         %img.icon.z-depth-5{:src => "/user_images/#{@user.image}"}
-      = fa_icon("edit")
+      = fa_icon("edit",class: "fa-lg")
       .p.post-index
-        投稿一覧
-      = fa_icon("star")
+        Post!
+      = fa_icon("star",class: "fa-lg")
       .p.fav-post-index
-        いいねした投稿
+        Favorite!
       = link_to edit_user_registration_path do
-        = fa_icon("cog")
+        = fa_icon("cog",class: "fa-lg")
         .p.acount-edit
-          アカウント編集
+          Edit!
 
     .my-post
       - @posts.each do |post|
@@ -52,6 +53,6 @@
                 = fav_post.post.favs_count
             - else
               %td
-                = link_to fav_posts_path(post), class: "fav", remote: true do
+                = link_to fav_posts_path(fav_post.post), class: "fav", remote: true do
                   = fa_icon("star", class: "fa-1g black-star", id: "#{fav_post.post.id}")
               = fav_post.post.favs_count

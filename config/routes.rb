@@ -6,5 +6,6 @@ Rails.application.routes.draw do
   resources :users, only: :show
   root 'top#index'
   resources :posts, only: [:index, :new, :create, :destroy]
+  get 'favorites/index' => 'favorites#index'
   get 'posts/fav/:id' => 'posts#fav', as: "fav_posts"
 end

@@ -1,4 +1,5 @@
 .post-box
+  .h1.time-line-heading TIME LINE
   .post-side
     %a.btn-floating.btn-large.red.pulse{:href => "/posts/new"}
       %i.material-icons edit
@@ -9,8 +10,9 @@
         - if post.user.id == current_user.id
           %figure.right-content
             %figcaption.img-description
-              = post.user.name
-            %img.icon.z-depth-5{:src => "/user_images/#{post.user.image}"}
+              = current_user.name
+            = link_to user_path(current_user.id) do
+              %img.icon.z-depth-5{:src => "/user_images/#{current_user.image}"}
           .post-content-right.z-depth-5
             %p
               = post.content
@@ -28,7 +30,8 @@
           %figure.left-content
             %figcaption.img-description
               = post.user.name
-            %img.icon.z-depth-5{:src => "/user_images/#{post.user.image}"}
+            = link_to user_path(post.user.id) do
+              %img.icon.z-depth-5{:src => "/user_images/#{post.user.image}"}
           .post-content-left.z-depth-5
             %p
               = post.content
