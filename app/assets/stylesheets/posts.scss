@@ -6,6 +6,12 @@
   padding-top:100px;
   @include noto();
 
+  .time-line-heading{
+    color:#EA5548;
+    text-align: center;
+    font-weight: bold;
+    font-size: 70px;
+  }
   .post-side{
     float:left;
     height: 100%;
@@ -33,6 +39,8 @@
         .icon {
           @include user-img();
           @include user-img-spin();
+          width: 60px;
+          height: 60px;
         }
         .img-description {
           @include user-description();
@@ -46,6 +54,8 @@
         .icon {
           @include user-img();
           @include user-img-spin();
+          width: 60px;
+          height: 60px;
         }
         .img-description {
           @include user-description();

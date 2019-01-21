@@ -5,23 +5,33 @@
   width: 100%;
   @include noto();
 
+  .my-page-heading{
+    color:#6C9BD2;
+    text-align: center;
+    font-weight: bold;
+  }
+
   .user-info{
     float:left;
     width: 15%;
     height: 100%;
     text-align: center;
 
-    .post-index:hover{
+    .post-index, .fav-post-index{
+      color : #039be5;
+      font-size:20px;
+    }
+    .post-index:hover, .fav-post-index:hover{
       cursor : pointer;
+    }
+    .acount-edit{
+      font-size:20px;
     }
     .fa-edit{
-      color:red;
-    }
-    .fav-post-index:hover{
-      cursor : pointer;
+      color:#E84566;
     }
     .fa-star{
-      color:yellow;
+      color:#F6AD48;
     }
     .fa-cog{
       color:gray;
@@ -44,7 +54,7 @@
       padding: 0.5em 1em;
       margin: 2em auto;
       font-weight: bold;
-      color: #6091d3;
+      color: #555;
       background: #FFF;
       border: solid 3px #6091d3;
       border-radius: 10px;
@@ -73,6 +83,8 @@
         .fav-icon {
           @include user-img();
           @include user-img-spin();
+          width: 60px;
+          height: 60px;
         }
         .fav-img-description {
           @include user-description();
