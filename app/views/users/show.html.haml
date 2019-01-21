@@ -42,7 +42,8 @@
           %figure.fav-content
             %figcaption.fav-img-description
               = fav_post.post.user.name
-            %img.fav-icon.z-depth-5{:src => "/user_images/#{fav_post.post.user.image}"}
+            = link_to user_path(fav_post.post.user.id) do
+              %img.fav-icon.z-depth-5{:src => "/user_images/#{fav_post.post.user.image}"}
           .fav-post-content.z-depth-5
             %p
               = fav_post.post.content
