@@ -1,0 +1,15 @@
+.row
+  %h1.fav-heading Favorite Ranking
+  - @favs.each.with_index(1) do |fav, i|
+    %ul
+      %li
+        .circle-number
+          = i
+        .post-content
+          = fav.content
+        = fa_icon("star",class: "fav-star")
+        = fav.favs_count
+        %span by
+        = fav.user.name
+        = link_to user_path(fav.user.id) do
+          %img.icon.z-depth-5{:src => "/user_images/#{fav.user.image}"}
