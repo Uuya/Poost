@@ -16,11 +16,6 @@ layout 'index'
     redirect_to "/posts"
   end
 
-  def show
-    @post = Post.find(id_params[:id])
-    @fav  = Favorite.find_by(user_id: current_user.id, post_id: @post.id)
-  end
-
   def destroy
     post = Post.find(id_params[:id])
     if post.user_id == current_user.id
