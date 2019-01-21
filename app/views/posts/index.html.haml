@@ -22,8 +22,8 @@
               %td
                 = link_to fav_posts_path(post), class: "fav", remote: true do
                   = fa_icon("star", class: "fa-1g black-star", id: "#{post.id}")
-            = link_to post_path(post), method: :get do
-              = fa_icon("search-plus", class: "fa-1g")
+            = link_to post_path(post), method: :delete do
+              %i.fa.fa-trash
         - else
           %figure.left-content
             %figcaption.img-description
@@ -40,5 +40,3 @@
               %td
                 = link_to fav_posts_path(post), class: "fav", remote: true do
                   = fa_icon("star", class: "fa-1g black-star", id: "#{post.id}")
-            = link_to post_path(post), method: :get do
-              = fa_icon("search-plus", class: "fa-1g")
