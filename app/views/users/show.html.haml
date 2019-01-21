@@ -1,0 +1,57 @@
+.row
+  .my-page
+    .user-info
+      %figure.img
+        %figcaption.img-description
+          = @user.name
+        %img.icon.z-depth-5{:src => "/user_images/#{@user.image}"}
+      = fa_icon("edit")
+      .p.post-index
+        投稿一覧
+      = fa_icon("star")
+      .p.fav-post-index
+        いいねした投稿
+      = link_to edit_user_registration_path do
+        = fa_icon("cog")
+        .p.acount-edit
+          アカウント編集
+
+    .my-post
+      - @posts.each do |post|
+        .post-content
+          %p
+            = post.content
+          - if post.favorited_by?(current_user)
+            %td
+              = link_to fav_posts_path(post), class: "fav", remote: true do
+                = fa_icon("star", class: "fa-1g yellow-star", id: "#{post.id}")
+                = post.favs_count
+          - else
+            %td
+              = link_to fav_posts_path(post), class: "fav", remote: true do
+                = fa_icon("star", class: "fa-1g black-star", id: "#{post.id}")
+              = post.favs_count
+          - if post.user.id == current_user.id
+            = link_to post_path(post), method: :delete do
+              = fa_icon("trash", class: "fa-1g")
+
+    .my-fav-post
+      - @fav_posts.each do |fav_post|
+        .fav-post-content
+          %figure.fav-content
+            %figcaption.fav-img-description
+              = fav_post.post.user.name
+            %img.fav-icon.z-depth-5{:src => "/user_images/#{fav_post.post.user.image}"}
+          .fav-post-content.z-depth-5
+            %p
+              = fav_post.post.content
+            - if fav_post.post.favorited_by?(current_user)
+              %td
+                = link_to fav_posts_path(fav_post.post), class: "fav", remote: true do
+                  = fa_icon("star", class: "fa-1g yellow-star", id: "#{fav_post.post.id}")
+                = fav_post.post.favs_count
+            - else
+              %td
+                = link_to fav_posts_path(post), class: "fav", remote: true do
+                  = fa_icon("star", class: "fa-1g black-star", id: "#{fav_post.post.id}")
+              = fav_post.post.favs_count
