@@ -4,6 +4,7 @@ $(function() {
       $('#' + e.detail[0]).removeClass('yellow-star').addClass('black-star');
     } else {
       $('#' + e.detail[0]).removeClass('black-star').addClass('yellow-star');
+      document.querySelector("#audio").play();
     }
   })
 })
