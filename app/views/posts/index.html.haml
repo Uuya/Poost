@@ -43,3 +43,6 @@
               %td
                 = link_to fav_posts_path(post), class: "fav", remote: true do
                   = fa_icon("star", class: "fa-1g black-star", id: "#{post.id}")
+
+
+= audio_tag("fav.mp3", id: "audio")
