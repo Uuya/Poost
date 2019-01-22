@@ -5,44 +5,13 @@
       %i.material-icons edit
 
   .post-main
-    - @posts.each do |post|
-      .main-content
-        - if post.user.id == current_user.id
-          %figure.right-content
-            %figcaption.img-description
-              = current_user.name
-            = link_to user_path(current_user.id) do
-              %img.icon.z-depth-5{:src => "/user_images/#{current_user.image}"}
-          .post-content-right.z-depth-5
-            %p
-              = post.content
-            - if post.favorited_by?(current_user)
-              %td
-                = link_to fav_posts_path(post), class: "fav", remote: true do
-                  = fa_icon("star", class: "fa-1g yellow-star", id: "#{post.id}")
-            - else
-              %td
-                = link_to fav_posts_path(post), class: "fav", remote: true do
-                  = fa_icon("star", class: "fa-1g black-star", id: "#{post.id}")
-            = link_to post_path(post), method: :delete do
-              %i.fa.fa-trash
-        - else
-          %figure.left-content
-            %figcaption.img-description
-              = post.user.name
-            = link_to user_path(post.user.id) do
-              %img.icon.z-depth-5{:src => "/user_images/#{post.user.image}"}
-          .post-content-left.z-depth-5
-            %p
-              = post.content
-            - if post.favorited_by?(current_user)
-              %td
-                = link_to fav_posts_path(post), class: "fav", remote: true do
-                  = fa_icon("star", class: "fa-1g yellow-star", id: "#{post.id}")
-            - else
-              %td
-                = link_to fav_posts_path(post), class: "fav", remote: true do
-                  = fa_icon("star", class: "fa-1g black-star", id: "#{post.id}")
-
+    = render 'posts', posts: @posts
 
 = audio_tag("fav.mp3", id: "audio")
+
+:javascript
+  $(function(){
+      setTimeout(function(){
+          location.reload();
+      },10000);
+  });
