@@ -20,6 +20,7 @@
 /node_modules
 /yarn-error.log
 
+app/assets/audios*
 /public/assets/*
 /public/uploads/*
 /public/user_images/*
